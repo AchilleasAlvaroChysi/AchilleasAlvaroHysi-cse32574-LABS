@@ -1,0 +1,25 @@
+
+        .data
+number:
+        .word  10
+       
+        .globl main
+
+        .text
+main:    
+	add $t1,$zero,$zero
+	lw $t1,0($zero)
+	add $t2,$t1,$zero
+	sw $t1,4($zero)
+	beq $t1,$t2,equal
+	
+
+	
+notequal:
+	and $t3,$t2,$t1
+equal: 
+	sub $t2,$t1,$t2
+	beq $t2,$t1,exit
+	j notequal
+exit: 
+	or $t4,$t2,$t1
